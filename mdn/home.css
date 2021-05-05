@@ -1,0 +1,209 @@
+/*
+colore di risalto immafine iniziale rgba(158,0,97,1)
+*/
+:root {​
+   --primary-color: rgba(158,0,97,1);
+   --gray-30p: rgba(128,128,128,.3);
+   --gray-70p: rgba(128,128,128,.7);
+   --midnight-green: rgba(2, 90, 102, .3);
+   --pansy-purple: rgba(126, 8, 86, .3);
+}
+
+html {
+	background-color: black;
+	margin: 0px;
+	font-size: 16;
+}
+
+body {
+	margin: 0px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	background-color: var(--gray-30p);
+	z-index: 2;
+}
+
+#logo {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 60px;
+}
+
+#menu-bar {
+	display: flex;
+	flex-flow: row;
+	align-items: flex-end;
+	justify-content: center;
+	height: 100%
+}
+
+.menu-item {
+	text-align: center;
+	flex: 1 1 auto;
+	margin: 10px 3vw;
+	padding-bottom: 10.5px;
+}
+
+
+.item-container:link {
+	text-decoration: none;
+	color: white;
+}
+
+.item-container:visited,
+.item-container:focus {
+	color: white;
+}
+
+.item-container:hover {
+	color: white;
+	border-bottom: 1px solid white;
+
+}
+
+.item-container:active {
+	color: white;
+
+}
+
+img {
+	width: 100%;
+	overflow: hidden;
+}
+
+#main-image {
+	height: 100vh;
+	background-image: url("boban-simonovski-main.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#title {
+	color: white;
+	line-height: 1em;
+	font-size: calc(10rem + 2vw);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	margin: 0px;
+	padding-top: 80px;
+	padding-left: calc(20px + 4vw)
+}
+
+#title > h1 {
+	display: inline;
+}
+
+@media (max-width: 750px){
+	#title {
+		font-size: calc(3rem + 5vw);
+	}
+}
+
+
+.flex-container {
+	display: flex;
+	direction: row;
+	height: 50vw;
+	margin: calc(20px + 4vw);
+	background-color: var(--gray-30p);
+	border-radius: 20px;
+}
+
+#info-container > * {
+	padding: 5%;
+}
+
+#info-container-text{
+	flex: 1 1 auto;
+}
+
+.circle {
+	width: 12vw;
+	height: 12vw;
+	border-radius: 50%;
+	opacity: 33.33%;
+	position: center;
+	z-index: 0;
+}
+
+.circle:hover{
+	border: 2px solid white;
+	z-index: 1;
+}
+
+
+/* RGB circles */
+
+#flex-container-draw {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#red {
+	background-color: red;
+	position: relative;
+	left: calc(12vw * 0.7);
+	top: calc(12vw * 0.25);
+
+}
+
+#blue {
+	background-color: blue;
+	position: relative;
+	bottom: calc(12vw * 0.25);
+}
+
+#green {
+	background-color: green;
+	position: relative;
+	right: calc(12vw * 0.7);
+	top: calc(12vw * 0.25);
+}
+
+#images {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin: calc(20px + 4vw);
+}
+
+#images .flex-container {
+	flex: 1 1 auto;
+}
+
+#left-image {
+	background-color: var(--midnight-green);
+	background-image: url("rosan-harmens.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: 0px 2% 0px 0px;
+}
+
+#center-image {
+	background-color: var(--gray-30p);
+	background-image: url("kenrick-mills.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: 0px 2% 0px 2%;
+}
+
+#right-image {
+	background-color: var(--pansy-purple);
+	background-image: url("nasik-lababan.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: 0px 0px 0px 2%;
+}
