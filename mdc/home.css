@@ -80,7 +80,7 @@ img {
 
 #main-image {
 	height: 100vh;
-	background-image: url("boban-simonovski-main.jpg");
+	background-image: url("images/boban-simonovski-main.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -183,7 +183,7 @@ img {
 
 #left-image {
 	background-color: var(--midnight-green);
-	background-image: url("rosan-harmens.jpg");
+	background-image: url("images/rosan-harmens.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -192,7 +192,7 @@ img {
 
 #center-image {
 	background-color: var(--gray-30p);
-	background-image: url("kenrick-mills.jpg");
+	background-image: url("images/kenrick-mills.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -201,7 +201,7 @@ img {
 
 #right-image {
 	background-color: var(--pansy-purple);
-	background-image: url("nasik-lababan.jpg");
+	background-image: url("images/nasik-lababan.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
