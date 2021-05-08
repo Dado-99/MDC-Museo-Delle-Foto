@@ -1,0 +1,45 @@
+#artist-frame {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+	height: auto;
+}
+
+#main-section{
+	height: auto;
+}
+
+#img-fullname-div {
+	flex-direction: column;
+	flex: .2 .2 auto;
+}
+
+#img-fullname-div > * {
+	flex: 1 1 auto;
+}
+
+#immagine-artista {
+	background-image: url("images/kenrick-mills-image.jpeg");
+}
+
+.circle-profile-image {
+	margin: 0px;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#immagine-artista:hover {
+	height: 135px;
+	width: 135px;
+	transition: .4s;
+}
+
+#full-name {
+	margin-top: ; 
+	text-align: center;
+}
