@@ -116,3 +116,38 @@ nav {
 .frame-flex-content-container > * {
 	flex: 1 1 auto;
 }
+
+
+@media (max-width: 360px){
+	nav {
+		height: auto;
+	}
+
+	#separator {
+		height: 200px;
+	}
+
+	#menu-bar {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		justify-content: flex-end;
+		height: 100%;
+	}
+
+	#menu-bar > * {
+		width: 100%;
+	}
+
+	.menu-item {
+		text-align: center;
+		flex: 1 1 auto;
+		margin-left: 0px;
+		margin-right: 0px; 
+		padding: 10.5px;
+	}
+	.item-container:hover {
+		background-color: white;
+		color: black;
+	}
+}

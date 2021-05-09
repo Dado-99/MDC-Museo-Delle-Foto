@@ -31,17 +31,6 @@
 	position: absolute;
 }
 
-@media (max-width: 750px){
-	#title {
-		font-size: calc(3rem + 5vw);
-	}
-}
-@media (max-height: 600px){
-	#title {
-		font-size: calc(3rem + 6vh);
-	}
-}
-
 #info-container-text {
 }
 
@@ -118,4 +107,15 @@
 	background-color: var(--gray-30p);
 	background-image: url("images/nasik-lababan.jpg");
 	margin: 0px 0px 0px 2%;
+}
+
+@media (max-width: 750px){
+	#title {
+		font-size: calc(3rem + 5vw);
+	}
+}
+@media (max-height: 600px){
+	#title {
+		font-size: calc(3rem + 6vh);
+	}
 }
