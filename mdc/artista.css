@@ -1,14 +1,14 @@
+#main-section{
+	height: auto;
+	flex-direction: column;
+}
+
 #artist-frame {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 5%;
 	height: auto;
-}
-
-#main-section{
-	height: auto;
-	flex-direction: column;
 }
 
 #img-fullname-div {
@@ -136,6 +136,7 @@
 	display: flex;
 	overflow-x: auto;
 	scroll-behavior: smooth;
+
   
   /*
   scroll-snap-points-x: repeat(300px);
@@ -143,15 +144,13 @@
   */
 }
 
-.slides > div {
+.slides > a > div {
 	flex-shrink: 0;
 	background-color: var(--gray-30p);
-	width: 30vw;
-	height: 100vh;
 	margin-right: 50px;
 	border-radius: 10px;
 	transform-origin: center center;
-	transform: scale(.9);
+	transform: scale(.8);
 	transition: transform 0.5s;
 	position: relative;
 	display: flex;
@@ -162,8 +161,8 @@
 	background-position: center;
 	background-size: cover;
 }
-.slides > div:target {
-	transform: scale(1);
+.slides > a > div:target {
+	transform: scale(.9);
 }
 
 #selector {
@@ -182,14 +181,31 @@
 	text-decoration: none;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
+	border-radius: 100%;
 	margin: .5rem;
 	position: relative;
+	color: black;
 }
 #selector > a:active {
   	top: 1px;
 }
+
 #selector > a:focus {
-  	background: black;
+	color: black;
+}
+#selector > a:hover {
+	color: black;
+}
+#selector > a:focus {
+	color: black;
 }
 
+.long-img {
+	width: 70vh;
+	height: 100vh;
+}
+
+.large-img {
+	width: 100vh;
+	height: 100vh;
+}
