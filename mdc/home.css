@@ -10,9 +10,8 @@
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
 	margin: 0px;
-	position: absolute;
-	top: 80px;
-	left: calc(20px + 4vw)
+	padding-top: 20px;
+	padding-left: calc(20px + 4vw)
 }
 
 #images {
@@ -99,7 +98,7 @@
 
 #center-image {
 	background-color: var(--midnight-green);
-	background-image: url("images/kenrick-mills.jpg");
+	background-image: url("images/kenrick-mills1.jpg");
 	margin: 0px 2% 0px 2%;
 }
 

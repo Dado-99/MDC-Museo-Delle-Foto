@@ -117,6 +117,24 @@ nav {
 	flex: 1 1 auto;
 }
 
+.to-upper {
+	transition: font-size .3s;
+}
+
+.to-upper:hover {
+	font-size: 1.2em;
+	transition: font-size .3s;
+}
+
+.grow {
+	transform-origin: center center;
+	transform: scale(1);
+	transition: transform 0.5s;
+}
+
+.grow:hover {
+	transform: scale(1.5);
+}
 
 @media (max-width: 360px){
 	nav {
