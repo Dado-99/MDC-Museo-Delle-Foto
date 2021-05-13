@@ -5,10 +5,40 @@
 
 #opera-frame {
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	padding: 5%;
 	height: auto;
+}
+
+#opera-title {
+	margin-top: 0px;
+	margin-bottom: 5%;
+	text-align: center;
+	width: 100%;
+}
+
+.info-value a:link, .info-value a:visited, .info-value a:focus, .info-value a:hover, .info-value a:active  {
+	text-decoration: none;
+	color: white;
+
+}
+
+#immagine-opera {
+	justify-content: flex-start;
+	display: flex;
+}
+
+#immagine-opera img {
+	width: calc(100px + 15vw);
+	border-radius: 10px;
+	overflow: hidden;
+
+}
+
+#opera-info {
+	flex: 2 2 auto;
+	width: 100%;
 }
 
 #info {
@@ -17,5 +47,35 @@
 	grid-template-columns: 3fr 1fr;
 	grid-row: auto;
 	grid-row-gap: 1vh;
-	margin-left: 10%;
+	margin-left: 5%;
+}
+
+#description {
+	margin-top: 5%;
+}
+
+@media (max-width: 830px){
+	#info {
+		grid-template-columns: 2fr 1fr; 
+	}
+}
+@media (max-width: 630px){
+	#opera-info {
+		flex-direction: column;
+	}
+
+	#immagine-opera {
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 10%;
+	}
+	#immagine-opera img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media (max-width: 230px){
+	#info {
+		grid-template-columns: 1fr; 
+	}
 }

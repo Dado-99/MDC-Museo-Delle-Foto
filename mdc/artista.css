@@ -23,24 +23,30 @@
 
 .circle-profile-image {
 	margin: auto;
-	width: 90px;
-	height: 90px;
+	height: 135px;
+	width: 135px;
 	border-radius: 100%;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
+	transform: scale(.75);
 }
 
 #immagine-artista {
 	background-image: url("images/kenrick-mills-profile-image.jpeg");
-	transition: height .4s, width .4s;
+	transition: transform .3s ease-in;
+}
+#immagine-artista > a {
+	display: block;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
 }
 
 #immagine-artista:hover  {
-	height: 135px;
-	width: 135px;
-	transition: height .4s, width .4s;
+	transform: scale(1);
+	transition: transform .3s ease-in;
 }
 
 #full-name {
@@ -61,9 +67,7 @@
 	margin-left: 10%;
 }
 
-#abouts
-
-.info-name{
+#abouts {
 
 }
 
@@ -74,7 +78,6 @@
 .info-value a:link, .info-value a:visited, .info-value a:focus, .info-value a:hover, .info-value a:active  {
 	text-decoration: none;
 	color: white;
-	border-bottom: 1px solid white;
 
 }
 
@@ -82,72 +85,24 @@
 	margin-top: 20px;
 }
 
-@media (max-width: 450px){
-	#general-info {
-		grid-template-columns: 1fr;
-	}
-
-	.info-value {
-		margin-top: 0px;
-		padding-left: 20px; 
-	}
-}
-
-@media (max-width: 240px){
-	#general-info {
-		grid-template-columns: 1fr;
-	}
-
-	.info-value {
-		padding-left: 0px; 
-	}
-
-	#immagine-artista:hover {
-		height: 90px;
-		width: 90px;
-		transition: .4s;
-	}
-}
-
-@media (max-width: 1000px) {
-	#artist-info {
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-	}
-	#general-info {
-		margin-left: 0px;
-		margin: 10px;
-		width: 70%;
-	}
-}
-
-.slider * {
-  box-sizing: border-box;
-}
-
 .slider {
 	width: 100%;
+	height: auto;
   	text-align: center;
   	overflow: hidden;
+  	background: linear-gradient(0deg, rgba(128,128,128,.3) 20%, rgba(0,0,0,0) 70%);
 }
 
 .slides {
 	display: flex;
 	overflow-x: auto;
 	scroll-behavior: smooth;
-
-  
-  /*
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-  */
 }
 
-.slides > a > div {
+.slides > div {
 	flex-shrink: 0;
-	background-color: var(--gray-30p);
-	margin-right: 50px;
+	margin-right: auto;
+	margin-left: auto;
 	border-radius: 10px;
 	transform-origin: center center;
 	transform: scale(.8);
@@ -157,11 +112,9 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 100px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
 }
-.slides > a > div:target {
+.slides > div:target {
 	transform: scale(.9);
 }
 
@@ -208,4 +161,45 @@
 .large-img {
 	width: 100vh;
 	height: 100vh;
+}
+
+.large-img img {
+	width: 100%;
+}
+
+.long-img img {
+	width: 100%;
+}
+
+@media (max-width: 1000px) {
+	#artist-info {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	#general-info {
+		margin-left: 0px;
+		margin: 10px;
+		width: 70%;
+	}
+}
+
+@media (max-width: 400px){
+	#general-info {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 360PX){
+	#selector {
+		top: 170px;
+	}
+}
+
+@media (max-width: 240px){
+
+	#immagine-artista:hover {
+		transform: scale(.75);
+		transition: transform .0s;
+	}
 }
