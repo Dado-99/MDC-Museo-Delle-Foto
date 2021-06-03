@@ -67,10 +67,6 @@
 	margin-left: 10%;
 }
 
-#abouts {
-
-}
-
 .info-value {
 	text-align: start;
 }
@@ -97,16 +93,17 @@
 	display: flex;
 	overflow-x: auto;
 	scroll-behavior: smooth;
+	align-items: center;
 }
 
 .slides > div {
 	flex-shrink: 0;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 10px;
 	transform-origin: center center;
 	transform: scale(.8);
 	transition: transform 0.5s;
+	border-radius: 10px;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -160,7 +157,7 @@
 
 .large-img {
 	width: 100vh;
-	height: 100vh;
+	height: 60vh;
 }
 
 .large-img img {

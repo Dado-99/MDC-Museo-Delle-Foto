@@ -1,0 +1,172 @@
+#main-section{
+	height: auto;
+	flex-direction: column;
+}
+
+#artist-frame {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+	height: auto;
+}
+
+#img-fullname-div {
+	flex-direction: column;
+	justify-content: center;
+	flex: 1 1 auto;
+}
+
+#img-fullname-div > * {
+	flex: 1 1 auto;
+}
+
+#immagine-artista {
+	transition: transform .3s ease-in;
+}
+
+#immagine-artista > a {
+	display: block;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+#immagine-artista:hover  {
+	transform: scale(1);
+	transition: transform .3s ease-in;
+}
+
+#full-name {
+	text-align: center;
+	width: 100%;
+}
+
+#artist-info {
+	width: 100%;
+}
+
+#general-info {
+	display: grid;
+	height: 100%;
+	grid-template-columns: 3fr 1fr;
+	grid-row: auto;
+	grid-row-gap: 1vh;
+	margin-left: 10%;
+}
+
+.info-value {
+	text-align: start;
+}
+
+.info-value a:link, .info-value a:visited, .info-value a:focus, .info-value a:hover, .info-value a:active  {
+	text-decoration: none;
+	color: white;
+
+}
+
+#abouts {
+	margin-top: 20px;
+}
+
+.slider {
+	width: 100%;
+	height: auto;
+  	text-align: center;
+  	overflow: hidden;
+  	background: linear-gradient(0deg, rgba(128,128,128,.3) 20%, rgba(0,0,0,0) 70%);
+}
+
+.slides {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	align-items: center;
+}
+
+.slides > div {
+	flex-shrink: 0;
+	margin-right: auto;
+	margin-left: auto;
+	transform-origin: center center;
+	transform: scale(.8);
+	transition: transform 0.5s;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 100px;
+	overflow: hidden;
+}
+.slides > div:target {
+	transform: scale(.9);
+}
+
+#selector {
+	position: -webkit-sticky;
+	position: sticky;
+	z-index: 1;
+	top: 60px;
+	text-align: center;
+}
+
+#selector > a {
+	display: inline-flex;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: white;
+	text-decoration: none;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	margin: .5rem;
+	position: relative;
+	color: black;
+}
+#selector > a:active {
+  	top: 1px;
+}
+
+#selector > a:focus {
+	color: black;
+}
+#selector > a:hover {
+	color: black;
+}
+#selector > a:focus {
+	color: black;
+}
+
+@media (max-width: 1000px) {
+	#artist-info {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	#general-info {
+		margin-left: 0px;
+		margin: 10px;
+		width: 70%;
+	}
+}
+
+@media (max-width: 400px){
+	#general-info {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 360PX){
+	#selector {
+		top: 170px;
+	}
+}
+
+@media (max-width: 240px){
+
+	#immagine-artista:hover {
+		transform: scale(.75);
+		transition: transform .0s;
+	}
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = @{|${artista.nome} ${artista.cognome}|})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/artista.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+
+		<section id="main-section" class="flex-small-container" th:object="${artista}">
+				<div id="artist-frame" class="frame-flex-content-container">
+
+					<div id="artist-info" class="flex-container" >
+						<div id="img-fullname-div">
+							<div id="immagine-artista" 
+								class="circle-profile-image" 
+								th:style="'background-image: ' + 'url(' + *{pathImmagine} + ');'">
+								
+								<a th:href="*{unspalsLink}"></a>
+							</div>
+
+							<div id="full-name">
+								<span th:text="|*{nome} *{cognome}|"></span>
+							</div>
+						</div>
+						<div id="general-info">
+								<div class="info-name" th:text="#{pages.artista.data.nascita}">
+									data di nascita:
+								</div>
+
+								<div class="info-value" th:text="*{dataNascita}">
+									...
+								</div>
+
+								<div class="info-name" th:text="#{pages.artista.luogo.nascita}">
+									...
+								</div>
+
+								<div class="info-value to-upper">
+									<a th:href="@{'https://www.google.com/maps/place/' + *{luogoNascita} + ',+' + *{nazionalita}}"
+										th:text="*{luogoNascita}">
+										...
+									</a>
+								</div>
+								<div class="info-name" th:text="#{pages.artista.data.morte}">
+									...
+								</div>
+
+								<div class="info-value" th:text="*{dataMorte != null} ? *{dataMorte} : '/'">
+									...
+								</div>
+								<div class="info-name" th:text="#{pages.artista.luogo.morte}">
+									...
+								</div>
+
+								<div class="info-value" th:text="*{luogoMorte != null} ? *{luogoMorte} : '/'">
+									...
+								</div>
+								<div class="info-name" th:text="#{pages.artista.nazionalita}">
+									... 
+								</div>
+								<div class="info-value" th:text="*{nazionalita}">
+									...
+								</div>
+							
+						</div>
+					</div>
+
+					<div id="abouts" class="flex-container">
+						
+						<p th:text="*{descrizione}">
+							 One morning, when Gregor Samsa woke from troubled dreams, he found 
+							 himself transformed in his bed into a horrible vermin. He lay on his
+							 armour-like back, and if he lifted his head a little he could see 
+							 his brown belly, slightly domed and divided by arches into stiff 
+							 sections. The bedding was hardly able to cover it and seemed ready 
+							 to slide off any moment. His many legs, pitifully thin compared with 
+							 the size of the rest of him, waved about helplessly as he looked. 
+							 "What's happened to me?" he thought. It wasn't a dream. His room, a 
+							 proper human room although a little too small, lay peacefully between 
+							 its four familiar walls. A collection of textile samples lay spread out 
+							 on the table - Samsa was a travelling salesman - and above it there 
+							 hung a picture that he had recently cut out of an illustrated magazine 
+							 and housed in a nice, gilded frame. It showed a lady fitted out with 
+							 a fur hat and fur boa who sat upright, raising a heavy fur muff that 
+							 covered the whole of her lower arm towards the viewer. Gregor then 
+							 turned to look out the window at the dull weather. Drops One morning, 
+							 when Gregor Samsa woke from troubled dreams, he found himself 
+							 transformed in his bed into a horrible vermin. He lay on his armour-like 
+							 back, and if he lifted his head a little he could see his brown belly, 
+							 slightly domed and divided by arches into stiff sections. The bedding was 
+							 hardly able to cover it and seemed ready to slide off any moment. His many 
+							 legs, pitifully thin compared with the size of the rest of him, waved 
+							 about helplessly as he looked. "What's happened to me?" he thought. It 
+							 wasn't a dream.
+						</p>
+					</div>
+				</div>		
+		</section>
+
+		<div id="selector" >
+			<a th:each="opera : ${opere}"
+				th:href="@{'#slide-' + ${operaStat.count}}"
+				th:text="${operaStat.count}" class="grow">
+				...
+			</a>
+		</div>
+		
+		<div class="slider">
+			<div class="slides">
+				<div th:each="opera : ${opere}" th:id="@{'slide-' + ${operaStat.count}}" th:class="*{isLong} ? long-img : large-img" th:object="${opera}">
+					<a th:href="@{'#slide-' + ${operaStat.count}}">
+						<img th:src="*{pathImmagine}" loading="lazy">
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

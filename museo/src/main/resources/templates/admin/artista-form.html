@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.artista.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/artista-form.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container">
+				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/artista/save}" method="POST" th:object="${artista}" enctype="multipart/form-data">
+					<label th:text="#{pages.artista.nome}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{nome}" class="entry"/>
+					
+					
+					<label th:text="#{pages.artista.cognome}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{cognome}" class="entry"/>
+					
+
+					<label th:text="#{pages.artista.immagine}">
+						...
+					</label>
+					
+					<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg" />
+
+					
+					<label th:text="#{pages.artista.data.nascita}">
+						...
+					</label>
+					
+					
+					<input type="date" th:field="*{dataNascita}" id="nascita" class="date-selector"/>
+
+					
+					<label th:text="#{pages.artista.luogo.nascita}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{luogoNascita}" class="entry"/>
+					
+					
+					<label th:text="#{pages.artista.nazionalita}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{nazionalita}" class="entry"/>
+					
+					
+					<label th:text="#{pages.artista.data.morte}">
+						...
+					</label>
+					
+					<input type="date" th:field="*{dataMorte}" min="#nascita" class="date-selector"/>
+					
+					
+					<label th:text="#{pages.artista.luogo.morte}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{luogoMorte}" class="entry"/>
+					
+					
+					<button  class="button slide" name="submit" value="indietro" th:text="#{button.indietro}">
+						...
+					</button>
+					<button  class="button slide" name="submit" value="salva" th:text="#{button.salva}">
+						...
+					</button>
+					
+				</form>
+		</section>
+	<body>
+</html>

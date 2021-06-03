@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.index.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+
+		<section>
+			<div id="main-image" class="image-background">
+				<h1 id="title">
+					<span th:text="#{pages.index.text.title.1}">MUSEO</span>
+					<br> 
+					<span th:text="#{pages.index.text.title.2}" id="title-delle">DELLE</span>
+					<br>
+					<span th:text="#{pages.index.text.title.3}" id="title-foto">FOTO</span>
+				</h1>
+			</div>
+		</section>
+
+		<section id="images" class="flex-small-container">
+				<div class="image-background" id="left-image" ></div>
+				<div class="image-background" id="center-image" ></div>
+				<div class="image-background" id="right-image" ></div>
+		</section>
+
+		<footer id="footer-index">
+			<span>
+				Accedi da gestore :
+			</span>
+			<form th:action="@{/login}">
+				<button class="button slide w200px" th:text="#{button.gestisci}">
+					...
+				</button>
+				
+			</form>
+		</footer>
+
+	</body>
+</html>

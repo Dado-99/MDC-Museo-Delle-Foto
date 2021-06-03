@@ -1,0 +1,33 @@
+#main-section {
+	flex-direction: column;
+}
+
+#grid-form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-row-gap: 10px;
+	grid-column-gap: 20px;
+	line-height: 2rem;
+}
+
+#form-flex-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.no-boreder-r, 
+.no-boreder-:target,
+.no-boreder-r:focus,
+.no-boreder-r:active {
+	border-radius: 0px;
+}
+
+#prosegui {
+	margin-top: 20px;
+	border-width: 1px;
+	border-radius: 0px;
+}

@@ -1,0 +1,130 @@
+#main-image {
+	height: 100vh;
+	background-image: url("../images/boban-simonovski-main.jpg");
+}
+
+#title {
+	color: white;
+	line-height: 1em;
+	font-size: calc(10rem + 2vw);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	margin: 0px;
+	padding-top: 20px;
+	padding-left: calc(20px + 4vw)
+}
+
+#images {
+	height: 50vw;
+}
+
+#title > h1 {
+	display: inline;
+}
+
+#title-delle {
+	position: absolute;
+}
+
+#title-foto {
+	position: absolute;
+}
+
+
+#info-container-text > * {
+	flex: 1 1 auto;
+}
+
+.circle {
+	width: 12vw;
+	height: 12vw;
+	border-radius: 50%;
+	opacity: 33.33%;
+	position: center;
+	box-sizing: border-box;
+	z-index: 0;
+}
+
+.circle:hover{
+	border: 2px solid white;
+	z-index: 1;
+}
+
+
+/* RGB circles */
+
+#flex-container-draw {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#red {
+	background-color: red;
+	position: relative;
+	left: calc(12vw * 0.7);
+	top: calc(12vw * 0.25);
+
+}
+
+#green {
+	background-color: green;
+	position: relative;
+	right: calc(12vw * 0.7);
+	top: calc(12vw * 0.25);
+}
+
+#blue {
+	background-color: blue;
+	position: relative;
+	bottom: calc(12vw * 0.25);
+}
+
+/* ---------- */
+
+.flex-small-container .image-background {
+	flex: 1 1 auto;
+	border-radius: 20px;
+}
+
+#left-image {
+	background-color: var(--dark-cyan-30p);
+	background-image: url("../images/rosan-harmens.jpg");
+	margin: 0px 2% 0px 0px;
+}
+
+#center-image {
+	background-color: var(--midnight-green);
+	background-image: url("../images/kenrick-mills1.jpg");
+	margin: 0px 2% 0px 2%;
+}
+
+#right-image {
+	background-color: var(--gray-30p);
+	background-image: url("../images/nasik-lababan.jpg");
+	margin: 0px 0px 0px 2%;
+}
+
+#footer-index {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	padding: calc(10px + 4vw);
+	
+}
+
+#gestisci {
+	margin-top: 20px;
+	border: 2px solid white;
+}
+
+@media (max-width: 750px){
+	#title {
+		font-size: calc(3rem + 5vw);
+	}
+}
+@media (max-height: 600px){
+	#title {
+		font-size: calc(3rem + 6vh);
+	}
+}

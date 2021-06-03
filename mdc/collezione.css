@@ -1,0 +1,83 @@
+#main-section {
+	height: 100%;
+	flex-direction: column;
+}
+
+#info-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	line-height: 40px;
+}
+
+#operas-section {
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+.mr-10px {
+	margin-right: 10px;
+}
+
+#container {
+	flex-direction: column;
+	height: auto;
+}
+
+.opera-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	margin-top: 20px;
+}
+
+.slider {
+	width: 100%;
+	height: 100%;
+	margin-top: 40px;
+  	text-align: center;
+  	overflow: hidden;
+}
+
+.slides {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	align-items: center;
+	height: auto;
+}
+
+.slides > div {
+	flex-shrink: 0;
+	margin-right: 10vh;
+	margin-left: auto;
+	transform-origin: center center;
+	transition: transform 0.5s;
+	position: relative;
+	flex-direction: column;
+}
+
+.slides > div:target {
+}
+
+.slides > div img {
+	border-radius: 10px;
+}
+
+.long-img {
+	width: 50vh;
+	height: 70vh;
+}
+
+.large-img {
+	width: 70vh;
+	height: 50vh;
+}
+
+.large-img img {
+	width: 100%;
+}
+
+.long-img img {
+	width: 100%;
+}

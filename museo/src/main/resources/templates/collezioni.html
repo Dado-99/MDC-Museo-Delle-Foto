@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.collezioni.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/collezioni.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container" >
+				<div id="main-frame" class="frame-flex-content-container">
+				
+					<h1 id="page-title" th:text="#{pages.collezioni.title}">Collezioni</h1>
+					
+					<div id="frame-artisti">
+					
+						<div class="collezione" th:each="collezione : ${collezioni}" th:object="${collezione}">
+							<div id="artista-select">
+								<a id="elimina" th:href="@{'/admin/collezione/remove/' + *{nome}}" th:if="${isAdmin}">
+									Elimina
+								</a>
+							
+								<a th:href="@{'/collezione/' + *{nome}}")>
+									<h2 class="titolo" th:text="*{nome}">...</h2>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+		
+	</body>
+</html>

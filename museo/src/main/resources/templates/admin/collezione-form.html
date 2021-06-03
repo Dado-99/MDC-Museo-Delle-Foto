@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.artista.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/artista-form.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container">
+				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/collezione/save}" method="POST" th:object="${collezione}">
+					<label th:text="#{pages.collezione.nome}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{nome}" class="entry" />
+					
+					
+					<label th:text="#{pages.collezione.descrizione}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{descrizione}" class="entry"/>
+					
+					
+					<label th:text="#{pages.collezione.curatore}">
+						...
+					</label>
+					
+					<select form="form-container" class="entry" name="curatore_matricola">
+						<option th:each="curatore : ${dipendenti}" th:value="${curatore.matricola}" th:text="|${curatore.nome} ${curatore.cognome}|">...</option>
+					</select>
+					
+					<button  class="button slide" name="submit" value="indietro" th:text="#{button.indietro}">
+						...
+					</button>
+					<button  class="button slide" name="submit" value="salva" th:text="#{button.salva}">
+						...
+					</button>
+					
+				</form>
+		</section>
+	<body>
+</html>

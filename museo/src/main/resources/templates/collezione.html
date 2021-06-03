@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:object="${collezione}">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = *{nome})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/collezione.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+
+		<section id="main-section" class="flex-small-container" >
+				<div id="container" class="frame-flex-content-container">
+					<div id="operas-section" class="flex-container">
+						<div id="info-section">
+							<h2 class="no-m-p" th:text="*{nome}">
+								Titolo Collezione
+							</h2>
+
+							<h3 class="no-m-p">
+								 <span class="small-text mr-10px" th:text="#{pages.collezione.curatore}" >...</span> 
+								 <span th:text="@{' ~' + *{curatore.nome} + ' ' + *{curatore.cognome}}">...</span>
+							</h3>
+						</div>
+					</div>
+					
+			
+					<div class="slider">
+						<div class="slides">
+							<div th:each="opera : ${opere}" th:object="${opera}" th:id="@{'#slide-' + *{id}}">
+								<a th:href="@{'/opera/' + *{id}}">
+									<img th:src="*{pathImmagine}" loading="lazy" th:class="*{isLong} ? long-img : large-img" >
+								</a>
+
+								<div class="opera-info">
+									<span th:text="#{pages.opera.autore}">
+										...
+									</span>
+									<span th:text="|*{autore.nome} *{autore.cognome}|">
+										...
+									</span>
+									<span th:text="#{pages.opera.titolo}">
+										...
+									</span>
+									<span th:text="*{titolo}">
+										...
+									</span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					
+					<div th:text="*{descrizione}">...</div>
+				</div>
+
+		
+	</body>
+</html>

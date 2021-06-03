@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.gestisci.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/gestisci.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container">
+				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/gestisci}" method="GET" >
+					<h1 th:text="#{pages.gestisci.title}">...</h1>
+					
+					<button name="submit" value="artista" th:text="#{button.artista}" class="button slide w200px">
+						...
+					</button>
+					
+					<button name="submit" value="opera" th:text="#{button.opera}" class="button slide w200px">
+						...
+					</button>
+					
+					<button name="submit" value="collezione" th:text="#{button.collezione}" class="button slide w200px">
+						...
+					</button>
+				</form>
+		</section>
+	<body>
+</html>

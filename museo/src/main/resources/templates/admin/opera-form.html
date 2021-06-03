@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.artista.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/artista-form.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container">
+				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/opera/save}" method="POST" th:object="${opera}" enctype="multipart/form-data">
+					
+					
+					<label th:text="#{pages.opera.titolo}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{titolo}" class="entry"/>
+					
+					
+					<label th:text="#{pages.opera.nome-collezione}">
+						...
+					</label>
+					
+					<select form="form-container" class="entry" name="collezione_id">
+						<option th:each="collezione : ${collezioni}" th:value="${collezione.nome}" th:text="${collezione.nome}">...</option>
+					</select>
+					
+					
+					<label th:text="#{pages.opera.autore}">
+						...
+					</label>
+					
+					<select form="form-container" class="entry" name="artista_id">
+						<option th:each="artista : ${artisti}" th:object="${artista}" th:value="*{id}" th:text="|*{nome} *{cognome}, *{dataNascita} *{luogoNascita}, *{nazionalita}|"></option>
+					</select>
+					
+					
+					<label th:text="#{pages.opera.data.pubblicazione}">
+						...
+					</label>
+					
+					<input type="date" th:field="*{dataPubblicazione}" class="date-selector"/>
+					
+					
+					<label th:text="#{pages.opera.immagine}">
+						...
+					</label>
+					
+					<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg" />
+					
+					
+					<label th:text="#{pages.opera.luogo}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{luogo}" class="entry"/>
+					
+					
+					<label th:text="#{pages.opera.orientamento}">
+						...
+					</label>
+					
+					<select th:field="*{isLong}" class="entry">
+						<option value="true" th:text="#{pages.opera.verticale}">verticale</option>
+						<option value="false" th:text="#{pages.opera.orizzontale}">orizzontale</option>
+					</select>
+					
+
+					<label th:text="#{pages.opera.descrizione}">
+						...
+					</label>
+					
+					<input type="text" th:field="*{descrizione}" class="entry" />
+					
+					
+					<button  class="button slide" name="submit" value="indietro" th:text="#{button.indietro}">
+						...
+					</button>
+					
+					<button  class="button slide" name="submit" value="salva" th:text="#{button.salva}">
+						...
+					</button>
+					
+				</form>
+		</section>
+	<body>
+</html>

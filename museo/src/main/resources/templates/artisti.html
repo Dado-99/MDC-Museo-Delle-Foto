@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.index.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/artisti.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+
+		<section id="main-section" class="flex-small-container" >
+				<div id="main-frame" class="frame-flex-content-container">
+					<h1 id="page-title">Artisti</h1>
+					<div id="frame-artisti">
+						<div class="artista" th:each="artista : ${artisti}" th:object="${artista}">
+							<div id="artista-select">
+								<a id="elimina" th:href="@{'/admin/artista/remove/' + *{id}}" th:if="${isAdmin}">
+									Elimina
+								</a>
+								
+								<h2 class="nome-cognome" th:text="|*{nome} *{cognome}|">
+									...
+								</h2>
+							
+							</div>
+							<div class="circle-small-profile-image mb-10px">
+								<a th:href="@{'/artista/' + *{id}}">
+									<img class="profile-img" th:src="*{pathImmagine}" loading="lazy"/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.index.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container" >
+				<div id="form-flex-container" class="frame-flex-content-container">
+					<form id="grid-form" th:action="@{/login}" method="POST">
+						<label for="username">Username :</label>
+						<input type="text" class="entry no-boreder-r" name="username" required/>
+						<label for="username">Password :</label>
+						<input type="password" class="entry no-boreder-r" name="password" required/>
+					</form>
+					<button form="grid-form" id="prosegui" class="slide button w200px">
+						prosegui
+					</button>
+				</div>
+		</section>
+	</body>
+</html>

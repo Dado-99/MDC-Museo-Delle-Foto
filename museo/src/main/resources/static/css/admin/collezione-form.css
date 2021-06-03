@@ -1,0 +1,21 @@
+#main-section{
+	display: block;
+}
+
+#form-container{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-row-gap: 10px;
+	grid-column-gap: 10px;
+}
+
+#form-container > * {
+	line-height: 2rem;
+}
+
+@media (max-width: 400px){
+	#form-container{
+		grid-template-columns: 1fr;
+	}
+}

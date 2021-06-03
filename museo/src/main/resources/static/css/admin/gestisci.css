@@ -1,0 +1,15 @@
+#main-section {
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+}
+
+#form-container {
+	flex-direction: column;
+	
+}
+
+#form-container > .button {
+	margin-left: auto;
+	margin-right: auto;
+}

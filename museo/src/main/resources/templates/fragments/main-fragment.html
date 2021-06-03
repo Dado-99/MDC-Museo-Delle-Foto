@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles(title)">
+	<meta charset="UTF-8"/>
+	<link th:href="@{/css/main-style.css}" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&Libre+Baskerville&display=swap" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<title th:text="${title}"></title>
+</head>
+<body>
+	<div th:fragment="navbar" id="separator">
+		<nav>
+			<div id="menu-bar">
+				<a th:href="@{/}" class="item-container">
+					<div class="menu-item" th:text="#{navbar.home}">
+						...
+					</div>
+				</a>
+
+				<a th:href="@{/artista}" class="item-container">
+					<div class="menu-item" th:text="#{navbar.artisti}">
+						...
+					</div>
+				</a>
+
+				<a th:href="@{/collezione}" class="item-container" >
+					<div class="menu-item" th:text="#{navbar.collezioni}">
+						...
+					</div>
+				</a>
+
+				<a th:href="@{/info}" class="item-container">
+					<div class="menu-item" th:text="#{navbar.info}">
+						...
+					</div>
+				</a>
+
+				<a th:href="@{/admin/menu}" class="item-container">
+					<div class="menu-item" th:text="#{navbar.gestisci}">
+						...
+					</div>
+				</a>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>
