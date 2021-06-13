@@ -1,0 +1,64 @@
+#main-frame {
+	flex-direction: column;
+}
+
+#frame-opere {
+	display: grid;
+	margin-top: 10px;
+	grid-template-columns: 1fr 1fr;
+	grid-row-gap: 15px;
+	grid-column-gap: 40px;
+	grid-template-rows: auto;
+}
+
+.autore{
+	margin-bottom: 20px;
+}
+
+.mb-10px {
+	margin-bottom: 10px;
+}
+
+#info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+#nome-cognome {
+	font-size: .7rem;
+}
+
+#page-title {
+	text-align: center;
+}
+
+.opera {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid white;
+}
+
+#opera-select {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (max-width: 760px){
+	
+	#frame-opere {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 490px){
+	
+	#frame-opere {
+		grid-template-columns: 1fr;
+	}
+}

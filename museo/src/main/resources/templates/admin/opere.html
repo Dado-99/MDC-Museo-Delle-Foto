@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.opere.text.title})">
+	</head>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/opere.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/main-fragment.html :: navbar">
+			...
+		</div>
+		
+		<section id="main-section" class="flex-small-container" >
+				<div id="main-frame" class="frame-flex-content-container">
+				
+					<h1 id="page-title" th:text="#{pages.opere.text.title}">
+						...
+					</h1>
+					
+					<div id="frame-opere">
+					
+						<div class="opera" th:each="opera : ${opere}" th:object="${opera}">
+							<div id="opera-select">
+								<a class="elimina slide-diagonal" th:href="@{'/admin/opera/remove/' + *{id}}" th:text="#{button.elimina}">
+									...
+								</a>
+								
+								<a th:href="@{'/opera/' + *{id}}")>
+									<img th:src="@{*{pathImmagine}}" th:class="*{isLong} ? long-small-img : large-small-img"/>
+								</a>
+							
+								<h2 class="titolo" th:text="*{titolo}">
+									...
+								</h2>
+								
+								<div class="autore" th:text="|*{autore.nome} *{autore.cognome}, *{autore.dataNascita}|">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+		
+	</body>
+</html>
