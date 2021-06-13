@@ -34,7 +34,8 @@ public class OperaService {
 	@Transactional
 	public void saveOpera(Opera o, Long artista_id, String collezione_nome) {
 		Artista a = artistaRepository.findById(artista_id).orElse(null);
-		Collezione c = collezioneRepository.findByNome(collezione_nome).orElse(null);
+		
+		Collezione c = collezioneRepository.findById(collezione_nome).orElse(null);
 		
 		if(a == null || c == null) {
 			return;

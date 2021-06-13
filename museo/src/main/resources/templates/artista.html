@@ -19,7 +19,8 @@
 								class="circle-profile-image" 
 								th:style="'background-image: ' + 'url(' + *{pathImmagine} + ');'">
 								
-								<a th:href="*{unspalsLink}"></a>
+								<a th:href="*{unspalsLink}">
+								</a>
 							</div>
 
 							<div id="full-name">
@@ -112,8 +113,10 @@
 		<div class="slider">
 			<div class="slides">
 				<div th:each="opera : ${opere}" th:id="@{'slide-' + ${operaStat.count}}" th:class="*{isLong} ? long-img : large-img" th:object="${opera}">
-					<a th:href="@{'#slide-' + ${operaStat.count}}">
-						<img th:src="*{pathImmagine}" loading="lazy">
+					<a th:href="@{'/opera/' + *{id}}">
+						<img th:src="*{pathImmagine}" 
+							 loading="lazy">
+							 
 					</a>
 				</div>
 			</div>

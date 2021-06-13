@@ -5,7 +5,7 @@
 #frame-artisti {
 	display: grid;
 	margin-top: 10px;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-row-gap: 15px;
 	grid-column-gap: 40px;
 	grid-template-rows: auto;
@@ -34,14 +34,6 @@
 	text-align: center;
 }
 
-#elimina {
-	flex: 0 0 0;
-	background-color: transparent;
-	border: 2px solid firebrick;
-	color: inherit;
-	padding: 5px 10px;
-}
-
 #artista-select {
 	display: flex;
 	flex: 1 1 auto;
@@ -56,4 +48,18 @@
 	justify-content: center;
 	align-items: center;
 	border-bottom: 1px solid white;
+}
+
+@media (max-width: 760px){
+	
+	#frame-artisti {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 490px){
+	
+	#frame-artisti {
+		grid-template-columns: 1fr;
+	}
 }

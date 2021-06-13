@@ -33,6 +33,16 @@ public class ArtistaController {
 	
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
+	@RequestMapping(value = "/artista")
+	public String getArtisti(Model model) {
+
+		logger.debug("getArtisti");
+
+		model.addAttribute("artisti", artistaService.getAllArtisti());
+
+		return "artisti";
+	}
+    
 	@RequestMapping(value = "/artista/{id}", method = RequestMethod.GET)
 	public String getArtista(@PathVariable("id") Long id, Model model) {
 		
@@ -60,13 +70,14 @@ public class ArtistaController {
 		if("indietro".equals(submit)) {
 			return "admin/gestisci";
 		}
+
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		artista.setImmagine(fileName);
 		
 		artistaValidator.validate(artista, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
-			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
-			artista.setImmagine(fileName);
 			
 			artistaService.saveArtista(artista);
 			
@@ -79,4 +90,13 @@ public class ArtistaController {
 		return "admin/artista-form";
 	}
 
+	@RequestMapping(value="/admin/artista/remove/{id}", method=RequestMethod.GET)
+	public String removeArtista(@PathVariable("id") Long id, 
+								Model model) {
+		
+		artistaService.removeArtista(id);
+		
+		return getArtisti(model);
+	}
+	
 }

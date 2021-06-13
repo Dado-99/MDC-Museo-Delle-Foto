@@ -24,7 +24,7 @@ public class CollezioneService {
 	
 	@Transactional
 	public void saveCollezione(Collezione c, String curatore_matricola) {
-		Dipendente d = dipendenteRepository.findByMatricola(curatore_matricola).orElse(null);
+		Dipendente d = dipendenteRepository.findById(curatore_matricola).orElse(null);
 		
 		if(d != null) {
 			c.setCuratore(d);
@@ -34,7 +34,7 @@ public class CollezioneService {
 	
 	@Transactional
 	public Collezione getCollezione(String nome) throws NoSuchElementException {
-		return collezioneRepository.findByNome(nome).get();
+		return collezioneRepository.findById(nome).get();
 	}
 	
 	@Transactional
@@ -44,11 +44,11 @@ public class CollezioneService {
 
 	@Transactional
 	public boolean alreadyExists(Collezione c) {
-		return collezioneRepository.findByNome(c.getNome()).orElse(null) != null;
+		return collezioneRepository.findById(c.getNome()).orElse(null) != null;
 	}
 	
 	@Transactional
 	public void removeCollezione(String nome) {
-		collezioneRepository.deleteByNome(nome);
+		collezioneRepository.deleteById(nome);
 	}
 }

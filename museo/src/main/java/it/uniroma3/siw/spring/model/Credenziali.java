@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 public @Data class Credenziali {
 	
-	public static final String DEFAULT_ROLE = "utente";
+	//public static final String DEFAULT_ROLE = "utente";
 	public static final String ADMIN_ROLE = "gestore";
 	
 	@Id

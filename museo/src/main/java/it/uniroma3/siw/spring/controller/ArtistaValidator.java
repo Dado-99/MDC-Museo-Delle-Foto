@@ -24,6 +24,7 @@ public class ArtistaValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dataNascita", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "luogoNascita", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
 		
 		Artista a = (Artista)o;
 		
@@ -33,13 +34,17 @@ public class ArtistaValidator implements Validator {
 		
 		if(a.getDataMorte() != null && a.getDataNascita().isAfter(a.getDataMorte())) {
 			errors.reject("dataNascita");
-			return;
 		}
 
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori richiesti non nulli");
 			
-			if (this.artistaService.alreadyExists((Artista)o)) {
+			a.setNome(a.getNome().trim());
+			a.setCognome(a.getCognome().trim());
+			a.setLuogoNascita(a.getLuogoNascita().trim());
+			
+			
+			if (this.artistaService.alreadyExists(a)) {
 				logger.debug("e' un duplicato");
 				
 				errors.reject("duplicato");

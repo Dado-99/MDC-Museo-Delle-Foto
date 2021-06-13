@@ -38,8 +38,14 @@
 					</div>
 				</a>
 
-				<a th:href="@{/admin/menu}" class="item-container">
+				<a th:href="@{/admin/menu}" class="item-container" sec:authorize="hasAnyAuthority('gestore')">
 					<div class="menu-item" th:text="#{navbar.gestisci}">
+						...
+					</div>
+				</a>
+				
+				<a th:href="@{/logout}" class="item-container" sec:authorize="hasAnyAuthority('gestore')">
+					<div class="menu-item" th:text="#{navbar.logout}">
 						...
 					</div>
 				</a>

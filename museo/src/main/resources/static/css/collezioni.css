@@ -2,18 +2,13 @@
 	flex-direction: column;
 }
 
-#frame-artisti {
+#frame-collezioni {
 	display: grid;
 	margin-top: 10px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-row-gap: 15px;
 	grid-column-gap: 40px;
 	grid-template-rows: auto;
-}
-
-.profile-img {
-	width: 100%;
-	height: 100%;
 }
 
 .mb-10px {
@@ -24,10 +19,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
-}
-
-#nome-cognome {
-	font-size: .7rem;
 }
 
 #page-title {
@@ -42,18 +33,24 @@
 	border-bottom: 1px solid white;
 }
 
-#elimina {
-	flex: 0 0 0;
-	background-color: transparent;
-	border: 2px solid firebrick;
-	color: inherit;
-	padding: 5px 10px;
-}
-
 #collezione-select {
 	display: flex;
 	flex: 1 1 auto;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+}
+
+@media (max-width: 760px){
+	
+	#frame-collezioni {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 490px){
+	
+	#frame-collezioni {
+		grid-template-columns: 1fr;
+	}
 }

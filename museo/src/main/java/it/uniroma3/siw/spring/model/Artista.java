@@ -43,6 +43,7 @@ public @Data class Artista{
 	@Column(nullable = false)
 	private String nazionalita;
 
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate dataMorte;
 
 	private String immagine;
@@ -61,6 +62,6 @@ public @Data class Artista{
 	public String getPathImmagine() {
 		if (immagine == null) return null;
 		
-		return "/images/artists/" + immagine;
+		return "/images/" + immagine;
 	}
 }

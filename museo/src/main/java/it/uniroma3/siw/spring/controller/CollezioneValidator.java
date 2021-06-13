@@ -21,10 +21,14 @@ public class CollezioneValidator implements Validator {
 	@Override
 	public void validate(Object o, Errors errors) {
 		
+		Collezione c = (Collezione) o;
+		
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori richiesti non nulli");
 			
-			if (this.collezioneService.alreadyExists((Collezione)o)) {
+			c.setNome(c.getNome().trim());
+			
+			if (this.collezioneService.alreadyExists(c)) {
 				logger.debug("e' un duplicato");
 				
 				errors.reject("duplicato");

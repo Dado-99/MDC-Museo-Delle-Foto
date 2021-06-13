@@ -53,6 +53,6 @@ public @Data class Opera {
 	public String getPathImmagine() {
 		if (immagine == null) return null;
 		
-		return "/images/operas/" + immagine;
+		return "/images/" + immagine;
 	}
 }

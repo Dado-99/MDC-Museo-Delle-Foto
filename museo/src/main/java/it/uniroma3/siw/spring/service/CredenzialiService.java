@@ -10,9 +10,6 @@ import it.uniroma3.siw.spring.repository.CredenzialiRepository;
 
 @Service
 public class CredenzialiService {
-
-//	@Autowired
-//	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private CredenzialiRepository credenzialiRepository;

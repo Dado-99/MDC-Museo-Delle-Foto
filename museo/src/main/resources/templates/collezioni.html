@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.collezioni.title})">
 	</head>
 	<head>
@@ -13,18 +14,22 @@
 		<section id="main-section" class="flex-small-container" >
 				<div id="main-frame" class="frame-flex-content-container">
 				
-					<h1 id="page-title" th:text="#{pages.collezioni.title}">Collezioni</h1>
+					<h1 id="page-title" th:text="#{pages.collezioni.title}">
+						...
+					</h1>
 					
-					<div id="frame-artisti">
+					<div id="frame-collezioni">
 					
 						<div class="collezione" th:each="collezione : ${collezioni}" th:object="${collezione}">
 							<div id="artista-select">
-								<a id="elimina" th:href="@{'/admin/collezione/remove/' + *{nome}}" th:if="${isAdmin}">
-									Elimina
+								<a class="elimina slide-diagonal" th:text="#{button.elimina}" th:href="@{'/admin/collezione/remove/' + *{nome}}" sec:authorize="hasAnyAuthority('gestore')">
+									...
 								</a>
 							
 								<a th:href="@{'/collezione/' + *{nome}}")>
-									<h2 class="titolo" th:text="*{nome}">...</h2>
+									<h2 class="titolo" th:text="*{nome}">
+										...
+									</h2>
 								</a>
 							</div>
 						</div>

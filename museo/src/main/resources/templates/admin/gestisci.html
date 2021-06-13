@@ -11,21 +11,25 @@
 		</div>
 		
 		<section id="main-section" class="flex-small-container">
-				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/gestisci}" method="GET" >
+				<div id="form-container" class="frame-flex-content-container">
 					<h1 th:text="#{pages.gestisci.title}">...</h1>
 					
-					<button name="submit" value="artista" th:text="#{button.artista}" class="button slide w200px">
+					<a th:href="@{/admin/gestisci/artista}" th:text="#{button.artista}" class="button slide w200px">
 						...
-					</button>
+					</a>
 					
-					<button name="submit" value="opera" th:text="#{button.opera}" class="button slide w200px">
+					<a th:href="@{/admin/gestisci/opera}" th:text="#{button.opera}" class="button slide w200px">
 						...
-					</button>
+					</a>
 					
-					<button name="submit" value="collezione" th:text="#{button.collezione}" class="button slide w200px">
+					<a th:href="@{/admin/gestisci/collezione}" th:text="#{button.collezione}" class="button slide w200px">
 						...
-					</button>
-				</form>
+					</a>
+					
+					<a th:href="@{/admin/gestisci/opere}" th:text="#{button.opere}" class="button slide w200px">
+						...
+					</a>
+				</div>
 		</section>
 	<body>
 </html>

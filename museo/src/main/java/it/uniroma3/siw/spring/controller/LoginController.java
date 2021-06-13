@@ -20,7 +20,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
-		return "login.html";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/default", method = RequestMethod.GET)

@@ -34,7 +34,17 @@ public class OperaController {
 	
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@RequestMapping(value = "/opera/{id}")
+    @RequestMapping(value = "/opera")
+    public String getOpere(Model model) {
+    	
+    	logger.debug("getOpere");
+    	
+    	model.addAttribute("opere", operaService.getAllOpere());
+    	
+    	return "admin/opere";
+    }
+
+    @RequestMapping(value = "/opera/{id}")
 	public String getOpera(@PathVariable("id") Long id, Model model) {
 		
 		logger.debug("getOpera");
@@ -45,8 +55,7 @@ public class OperaController {
 			
 			return "opera.html";
 			
-		} catch (NoSuchElementException e)
-		{
+		} catch (NoSuchElementException e) {
 			return "error.html";
 		}
 	}
@@ -84,5 +93,13 @@ public class OperaController {
 		return "admin/opera-form";
 	}
 	
+	@RequestMapping(value="/admin/opera/remove/{id}", method=RequestMethod.GET)
+	public String removeOpera(@PathVariable("id") Long id, 
+			Model model) {
+		
+		operaService.removeOpera(id);
+		
+		return getOpere(model);
+	}
 	
 }

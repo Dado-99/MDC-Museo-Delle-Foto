@@ -12,47 +12,101 @@
 		
 		<section id="main-section" class="flex-small-container">
 				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/artista/save}" method="POST" th:object="${artista}" enctype="multipart/form-data">
-					<label th:text="#{pages.artista.nome}">
-						...
-					</label>
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('nome')}">
+						</div>
+						<label th:text="#{pages.artista.nome}">
+							...
+						</label>
+					</div>
 					
-					<input type="text" th:field="*{nome}" class="entry"/>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+							...
+						</div>
+						
+						<input type="text" th:field="*{nome}" class="entry"/>
+					</div>
 					
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('cognome')}">
+						</div>
+						<label th:text="#{pages.artista.cognome}">
+							...
+						</label>
+					</div>
 					
-					<label th:text="#{pages.artista.cognome}">
-						...
-					</label>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">
+							...
+						</div>
+						
+						<input type="text" th:field="*{cognome}" class="entry"/>
+					</div>
+				
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('immagine')}">
+						</div>
+						<label th:text="#{pages.artista.immagine}">
+							...
+						</label>
+					</div>
 					
-					<input type="text" th:field="*{cognome}" class="entry"/>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}">
+							...
+						</div>
+						
+						<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg" />
+					</div>
 					
-
-					<label th:text="#{pages.artista.immagine}">
-						...
-					</label>
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('dataNascita')}">
+						</div>
+						<label th:text="#{pages.artista.data.nascita}">
+							...
+						</label>
+					</div>
 					
-					<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg" />
-
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}">
+							...
+						</div>
+						
+						<input type="date" th:field="*{dataNascita}" id="nascita" class="date-selector"/>
+					</div>
 					
-					<label th:text="#{pages.artista.data.nascita}">
-						...
-					</label>
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('luogoNascita')}">
+						</div>
+						<label th:text="#{pages.artista.luogo.nascita}">
+							...
+						</label>
+					</div>
+	
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('luogoNascita')}" th:errors="*{luogoNascita}">
+							...
+						</div>
+						
+						<input type="text" th:field="*{luogoNascita}" class="entry"/>
+					</div>
 					
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('nazionalita')}">
+						</div>
+						<label th:text="#{pages.artista.nazionalita}">
+							...
+						</label>
+					</div>
 					
-					<input type="date" th:field="*{dataNascita}" id="nascita" class="date-selector"/>
-
-					
-					<label th:text="#{pages.artista.luogo.nascita}">
-						...
-					</label>
-					
-					<input type="text" th:field="*{luogoNascita}" class="entry"/>
-					
-					
-					<label th:text="#{pages.artista.nazionalita}">
-						...
-					</label>
-					
-					<input type="text" th:field="*{nazionalita}" class="entry"/>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}">
+							...
+						</div>
+						
+						<input type="text" th:field="*{nazionalita}" class="entry"/>
+					</div>
 					
 					
 					<label th:text="#{pages.artista.data.morte}">
