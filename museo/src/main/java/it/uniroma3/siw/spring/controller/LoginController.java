@@ -23,6 +23,11 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout() {
+		return "index";
+	}
+	
 	@RequestMapping(value = "/default", method = RequestMethod.GET)
 	public String defaultAfterLogin(Model model) {
 		UserDetails dettagliUtente = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();

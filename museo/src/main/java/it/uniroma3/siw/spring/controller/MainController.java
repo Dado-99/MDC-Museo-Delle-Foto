@@ -37,6 +37,8 @@ public class MainController {
 
 	@RequestMapping(value="/admin/gestisci/artista", method=RequestMethod.GET)
 	public String formArtista(Model model) {
+		logger.debug("formArtista");
+		
 		model.addAttribute("artista", new Artista());
 		
 		return "admin/artista-form";
@@ -45,6 +47,7 @@ public class MainController {
 	
 	@RequestMapping(value="/admin/gestisci/collezione", method=RequestMethod.GET)
 	public String formCollezione(Model model) {
+		logger.debug("formCollezione");
 
 		model.addAttribute("collezione", new Collezione());
 		model.addAttribute("dipendenti", dipendentiService.getAllDipendenti());
@@ -54,6 +57,7 @@ public class MainController {
 	
 	@RequestMapping(value="/admin/gestisci/opera", method=RequestMethod.GET)
 	public String formOpera(Model model) {
+		logger.debug("formOpera");
 		
 		model.addAttribute("opera", new Opera());
 		model.addAttribute("collezioni", collezioneService.getAllCollezioni());
@@ -64,6 +68,7 @@ public class MainController {
 	
 	@RequestMapping(value="/admin/gestisci/opere", method=RequestMethod.GET)
 	public String getAllOpere(@ModelAttribute("submit") String submit, Model model) {
+		logger.debug("getOpere");
 		
 		model.addAttribute("opere", operaService.getAllOpere());
 		
@@ -72,6 +77,8 @@ public class MainController {
 	
 	@RequestMapping(value="/admin/menu", method=RequestMethod.GET)
 	public String menu(Model model) {
+		logger.debug("menu");
+		
 		return "admin/gestisci";
 	}
 	
