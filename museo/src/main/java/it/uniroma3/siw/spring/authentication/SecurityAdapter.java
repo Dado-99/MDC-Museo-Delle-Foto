@@ -33,7 +33,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
         // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
         .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista", "/artista/**", "/opera/**", "/collezione", "/collezione/**", "/css/**", "/images/**").permitAll()
         // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
-        .antMatchers(HttpMethod.POST, "/login").permitAll()
+        .antMatchers(HttpMethod.POST, "/login").permitAll() 
         // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
         .antMatchers(HttpMethod.GET, "/gestore/**").hasAnyAuthority(ADMIN_ROLE)
         .antMatchers(HttpMethod.POST, "/gestore/**").hasAnyAuthority(ADMIN_ROLE)
