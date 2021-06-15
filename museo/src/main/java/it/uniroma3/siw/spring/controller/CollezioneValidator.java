@@ -27,6 +27,7 @@ public class CollezioneValidator implements Validator {
 			logger.debug("confermato: valori richiesti non nulli");
 			
 			c.setNome(c.getNome().trim());
+			c.setDescrizione(c.getDescrizione().trim());
 			
 			if (this.collezioneService.alreadyExists(c)) {
 				logger.debug("e' un duplicato");

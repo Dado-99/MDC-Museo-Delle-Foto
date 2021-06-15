@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.artista.title})">
+	<head th:replace="fragments/main-fragment.html :: headerfiles(title = #{pages.nuovo.artista.text.title})">
 	</head>
 	<head>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/admin/artista-form.css}">
@@ -123,9 +123,9 @@
 					<input type="text" th:field="*{luogoMorte}" class="entry"/>
 					
 					
-					<button  class="button slide" name="submit" value="indietro" th:text="#{button.indietro}">
+					<a class="button slide" th:href="@{/admin/menu}" th:text="#{button.indietro}">
 						...
-					</button>
+					</a>
 					<button  class="button slide" name="submit" value="salva" th:text="#{button.salva}">
 						...
 					</button>

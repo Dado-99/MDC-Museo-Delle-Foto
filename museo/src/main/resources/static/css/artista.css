@@ -91,7 +91,6 @@
 	transform-origin: center center;
 	transform: scale(.8);
 	transition: transform 0.5s;
-	border-radius: 10px;
 	position: relative;
 	display: flex;
 	justify-content: center;

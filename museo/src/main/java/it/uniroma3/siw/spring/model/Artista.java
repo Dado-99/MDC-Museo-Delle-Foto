@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public @Data class Artista{
 
+	public static final String artistsPath = "images/artists";
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -62,6 +64,6 @@ public @Data class Artista{
 	public String getPathImmagine() {
 		if (immagine == null) return null;
 		
-		return "/images/" + immagine;
+		return "/images/artists/" + immagine;
 	}
 }

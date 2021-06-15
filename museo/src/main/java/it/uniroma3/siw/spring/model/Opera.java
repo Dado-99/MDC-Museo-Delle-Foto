@@ -24,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public @Data class Opera {
 	
+	public static final String operasPath = "images/operas";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -53,6 +55,6 @@ public @Data class Opera {
 	public String getPathImmagine() {
 		if (immagine == null) return null;
 		
-		return "/images/" + immagine;
+		return "/images/operas/" + immagine;
 	}
 }

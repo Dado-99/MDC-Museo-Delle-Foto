@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.service.CollezioneService;
@@ -70,12 +71,12 @@ public class CollezioneController {
 	}
 	
 	@RequestMapping(value="/admin/collezione/remove/{nome}", method=RequestMethod.GET)
-	public String removeCollezione(@PathVariable("nome") String nome, 
+	public RedirectView removeCollezione(@PathVariable("nome") String nome, 
 								   Model model) {
 		
 		collezioneService.removeCollezione(nome);
 		
-		return getCollezioni(model);
+		return new RedirectView("/collezione");
 	}
 
 }

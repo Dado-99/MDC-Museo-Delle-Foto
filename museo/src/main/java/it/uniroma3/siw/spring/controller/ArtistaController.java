@@ -1,7 +1,6 @@
 package it.uniroma3.siw.spring.controller;
 
 import java.io.IOException;
-import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.FileUploadUtil;
-import it.uniroma3.siw.spring.service.MvcConfig;
 
 @Controller
 public class ArtistaController {
@@ -47,18 +45,12 @@ public class ArtistaController {
 	public String getArtista(@PathVariable("id") Long id, Model model) {
 		
 		logger.debug("getArtista");
-		try {
-			Artista a = artistaService.getArtista(id);
-			model.addAttribute("artista", a);
-			model.addAttribute("opere", a.getOpere());
-			
-			return "artista";
-			
-		} catch (NoSuchElementException e)
-		{
-			model.addAttribute("message", "Non è stato trovato nessun autore");
-			return "error";
-		}
+		
+		Artista a = artistaService.getArtista(id);
+		model.addAttribute("artista", a);
+		model.addAttribute("opere", a.getOpere());
+		
+		return "artista";
 	}
 	
 	@RequestMapping(value="/admin/artista/save", method=RequestMethod.POST)
@@ -81,7 +73,7 @@ public class ArtistaController {
 			
 			artistaService.saveArtista(artista);
 			
-			FileUploadUtil.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
+			FileUploadUtil.saveFile(Artista.artistsPath, fileName, multipartFile);
 			
 			return "admin/gestisci";
 		}

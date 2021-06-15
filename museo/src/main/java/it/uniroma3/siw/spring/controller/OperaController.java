@@ -20,7 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.FileUploadUtil;
-import it.uniroma3.siw.spring.service.MvcConfig;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
@@ -72,18 +71,18 @@ public class OperaController {
 		if("indietro".equals(submit)) {
 			return "admin/gestisci";
 		}
+
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		opera.setImmagine(fileName);
 		
 		operaValidator.validate(opera, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
 			
-			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
-			opera.setImmagine(fileName);
-			
 			operaService.saveOpera(opera, Long.parseLong(artista_id), collezione_nome);
 			
-			FileUploadUtil.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
+			FileUploadUtil.saveFile(Opera.operasPath, fileName, multipartFile);
 			
 			return "admin/gestisci";
 		}
