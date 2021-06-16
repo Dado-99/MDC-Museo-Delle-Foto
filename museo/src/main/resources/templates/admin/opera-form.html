@@ -13,19 +13,27 @@
 		<section id="main-section" class="flex-small-container">
 				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/opera/save}" method="POST" th:object="${opera}" enctype="multipart/form-data">
 					
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('titolo')}">
+						</div>
+						<label th:text="#{pages.opera.titolo}">
+							...
+						</label>
+					</div>
 					
-					<label th:text="#{pages.opera.titolo}">
-						...
-					</label>
-					
-					<input type="text" th:field="*{titolo}" class="entry" required/>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">
+							...
+						</div>
+						<input type="text" th:field="*{titolo}" class="entry"/>
+					</div>
 					
 					
 					<label th:text="#{pages.opera.nome-collezione}">
 						...
 					</label>
 					
-					<select form="form-container" class="entry" name="collezione_id">
+					<select class="entry" name="collezione_id">
 						<option th:each="collezione : ${collezioni}" th:value="${collezione.nome}" th:text="${collezione.nome}">...</option>
 					</select>
 					
@@ -34,30 +42,47 @@
 						...
 					</label>
 					
-					<select form="form-container" class="entry" name="artista_id">
+					<select class="entry" name="artista_id">
 						<option th:each="artista : ${artisti}" th:object="${artista}" th:value="*{id}" th:text="|*{nome} *{cognome}, *{dataNascita} *{luogoNascita}, *{nazionalita}|"></option>
 					</select>
 					
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('dataPubblicazione')}">
+						</div>
+						<label th:text="#{pages.opera.data.pubblicazione}">
+							...
+						</label>
+					</div>
 					
-					<label th:text="#{pages.opera.data.pubblicazione}">
-						...
-					</label>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('dataPubblicazione')}" th:errors="*{dataPubblicazione}">
+							...
+						</div>
+						<input type="date" th:field="*{dataPubblicazione}" class="date-selector"/>
+					</div>
 					
-					<input type="date" th:field="*{dataPubblicazione}" class="date-selector" required/>
 					
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('immagine')}">
+						</div>
+						<label th:text="#{pages.opera.immagine}">
+							...
+						</label>
+					</div>
 					
-					<label th:text="#{pages.opera.immagine}">
-						...
-					</label>
-					
-					<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg" required/>
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}">
+							...
+						</div>
+						<input type="file" name="foto" class="file-selector" accept="image/png, image/jpeg"/>
+					</div>
 					
 					
 					<label th:text="#{pages.opera.luogo}">
 						...
 					</label>
 					
-					<input type="text" th:field="*{luogo}" class="entry" required/>
+					<input type="text" th:field="*{luogo}" class="entry"/>
 					
 					
 					<label th:text="#{pages.opera.orientamento}">
@@ -85,6 +110,9 @@
 						...
 					</button>
 					
+					<div th:if="${#fields.hasGlobalErrors()}">
+		  				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+					</div>
 				</form>
 		</section>
 	<body>

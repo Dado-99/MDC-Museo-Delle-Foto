@@ -62,6 +62,7 @@ public class OperaService {
 		return operaRepository.findByTitolo(o.getTitolo()).orElse(null) != null;
 	}
 	
+	@Transactional
 	public void removeOpera(Long id) {
 		operaRepository.deleteById(id);
 	}

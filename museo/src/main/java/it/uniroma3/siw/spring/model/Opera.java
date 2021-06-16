@@ -3,12 +3,13 @@ package it.uniroma3.siw.spring.model;
 import java.beans.Transient;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,6 +20,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"titolo", "autore_id", "dataPubblicazione"}))
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -37,7 +39,6 @@ public @Data class Opera {
 	
 	private String luogo;
 	
-	@Column(nullable = true, length = 64)
 	private String immagine;
 	
 	private Boolean isLong;

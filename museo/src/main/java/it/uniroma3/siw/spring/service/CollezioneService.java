@@ -31,6 +31,10 @@ public class CollezioneService {
 			collezioneRepository.save(c);
 		}
 	}
+	@Transactional
+	public void saveCollezione(Collezione c) {
+		collezioneRepository.save(c);
+	}
 	
 	@Transactional
 	public Collezione getCollezione(String nome) throws NoSuchElementException {

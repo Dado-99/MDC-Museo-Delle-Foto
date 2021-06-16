@@ -130,6 +130,10 @@
 						...
 					</button>
 					
+					<div th:if="${#fields.hasGlobalErrors()}">
+		  				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+					</div>
+					
 				</form>
 		</section>
 	<body>

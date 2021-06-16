@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.spring.model.Opera;
@@ -20,6 +21,9 @@ public class OperaValidator implements Validator {
     
 	@Override
 	public void validate(Object obj, Errors errors) {
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dataPubblicazione", "required");
 		
 		Opera o = (Opera)obj;
 

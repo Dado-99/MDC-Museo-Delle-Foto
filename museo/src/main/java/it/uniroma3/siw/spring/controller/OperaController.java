@@ -58,13 +58,13 @@ public class OperaController {
 		model.addAttribute("opera", o);
 		model.addAttribute("autore", o.getAutore());
 		
-		return "opera.html";
+		return "opera";
 	}
 	
 	@RequestMapping(value="/admin/opera/save", method=RequestMethod.POST)
-	public String saveOpera(@ModelAttribute("opera") Opera opera,
-							@ModelAttribute("artista_id") String artista_id,
+	public String saveOpera(@ModelAttribute("artista_id") String artista_id,
 							@ModelAttribute("collezione_id") String collezione_nome,
+							@ModelAttribute("opera") Opera opera,
 							@RequestParam("foto") MultipartFile multipartFile,
 							BindingResult bindingResult ,Model model) throws IOException {
 

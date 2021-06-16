@@ -52,8 +52,8 @@ public class CollezioneController {
 	}
 	
 	@RequestMapping(value="/admin/collezione/save", method=RequestMethod.POST)
-	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
-							  @ModelAttribute("curatore_matricola") String curatore_matricola,
+	public String saveArtista(@ModelAttribute("curatore_matricola") String curatore_matricola,
+							  @ModelAttribute("collezione") Collezione collezione, 
 							  BindingResult bindingResult, Model model) {
 		
 		collezioneValidator.validate(collezione, bindingResult);

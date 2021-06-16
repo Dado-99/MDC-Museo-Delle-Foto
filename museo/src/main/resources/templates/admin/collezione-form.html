@@ -11,12 +11,23 @@
 		</div>
 		
 		<section id="main-section" class="flex-small-container">
+			
 				<form id="form-container" class="frame-flex-content-container" th:action="@{/admin/collezione/save}" method="POST" th:object="${collezione}">
-					<label th:text="#{pages.collezione.nome}">
-						...
-					</label>
 					
-					<input type="text" th:field="*{nome}" class="entry" required/>
+					<div class="fields">
+						<div class="field-name" th:if="${#fields.hasErrors('nome')}">
+						</div>
+						<label th:text="#{pages.collezione.nome}">
+							...
+						</label>
+					</div>
+					
+					<div class="fields">
+						<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+							...
+						</div>
+						<input type="text" th:field="*{nome}" class="entry"/>
+					</div>
 					
 					
 					<label th:text="#{pages.collezione.descrizione}">
@@ -40,6 +51,10 @@
 					<button  class="button slide" name="submit" value="salva" th:text="#{button.salva}">
 						...
 					</button>
+					
+					<div th:if="${#fields.hasGlobalErrors()}">
+		  				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+					</div>
 					
 				</form>
 		</section>
