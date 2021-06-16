@@ -56,12 +56,8 @@ public class ArtistaController {
 	@RequestMapping(value="/admin/artista/save", method=RequestMethod.POST)
 	public String saveArtista(@ModelAttribute("artista") Artista artista,
 							  @RequestParam("foto") MultipartFile multipartFile,
-							  String submit, BindingResult bindingResult,
+							  BindingResult bindingResult,
 							  Model model) throws IOException {
-		
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
 
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.service.CollezioneService;
+import it.uniroma3.siw.spring.service.DipendenteService;
 
 @Controller
 public class CollezioneController {
@@ -23,6 +24,9 @@ public class CollezioneController {
 	
 	@Autowired
 	private CollezioneValidator collezioneValidator;
+	
+	@Autowired
+	private DipendenteService dipendentiService;
 	
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -50,12 +54,7 @@ public class CollezioneController {
 	@RequestMapping(value="/admin/collezione/save", method=RequestMethod.POST)
 	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
 							  @ModelAttribute("curatore_matricola") String curatore_matricola,
-							  @ModelAttribute("submit") String submit, 
 							  BindingResult bindingResult, Model model) {
-		
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
 		
 		collezioneValidator.validate(collezione, bindingResult);
 		
@@ -67,6 +66,8 @@ public class CollezioneController {
 		}
 		
 		model.addAttribute("collezione", collezione);
+		model.addAttribute("dipendenti", dipendentiService.getAllDipendenti());
+
 		return "admin/collezione-form";
 	}
 	

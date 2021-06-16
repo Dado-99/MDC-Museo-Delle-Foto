@@ -14,7 +14,7 @@ import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.CollezioneService;
-import it.uniroma3.siw.spring.service.DipendentiService;
+import it.uniroma3.siw.spring.service.DipendenteService;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
@@ -30,7 +30,7 @@ public class MainController {
 	private OperaService operaService;
 
 	@Autowired
-	private DipendentiService dipendentiService;
+	private DipendenteService dipendentiService;
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	

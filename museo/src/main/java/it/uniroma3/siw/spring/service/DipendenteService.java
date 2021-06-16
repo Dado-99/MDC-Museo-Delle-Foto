@@ -11,7 +11,7 @@ import it.uniroma3.siw.spring.model.Dipendente;
 import it.uniroma3.siw.spring.repository.DipendenteRepository;
 
 @Service
-public class DipendentiService {
+public class DipendenteService {
 
 	@Autowired
 	private DipendenteRepository dipendenteRepository;

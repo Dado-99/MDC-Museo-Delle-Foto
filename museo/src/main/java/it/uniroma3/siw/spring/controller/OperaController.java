@@ -2,7 +2,6 @@ package it.uniroma3.siw.spring.controller;
 
 
 import java.io.IOException;
-import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Opera;
+import it.uniroma3.siw.spring.service.ArtistaService;
+import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.FileUploadUtil;
 import it.uniroma3.siw.spring.service.OperaService;
 
@@ -30,6 +31,12 @@ public class OperaController {
 
 	@Autowired
 	private OperaValidator operaValidator;
+	
+	@Autowired
+	private CollezioneService collezioneService;
+	
+	@Autowired
+	private ArtistaService artistaService;
 	
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -47,16 +54,11 @@ public class OperaController {
 	public String getOpera(@PathVariable("id") Long id, Model model) {
 		
 		logger.debug("getOpera");
-		try {
-			Opera o = operaService.getOpera(id);
-			model.addAttribute("opera", o);
-			model.addAttribute("autore", o.getAutore());
-			
-			return "opera.html";
-			
-		} catch (NoSuchElementException e) {
-			return "error.html";
-		}
+		Opera o = operaService.getOpera(id);
+		model.addAttribute("opera", o);
+		model.addAttribute("autore", o.getAutore());
+		
+		return "opera.html";
 	}
 	
 	@RequestMapping(value="/admin/opera/save", method=RequestMethod.POST)
@@ -64,13 +66,7 @@ public class OperaController {
 							@ModelAttribute("artista_id") String artista_id,
 							@ModelAttribute("collezione_id") String collezione_nome,
 							@RequestParam("foto") MultipartFile multipartFile,
-							@ModelAttribute("submit") String submit, 
 							BindingResult bindingResult ,Model model) throws IOException {
-		
-		
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
 
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		
@@ -88,6 +84,8 @@ public class OperaController {
 		}
 
 		model.addAttribute("opera", opera);
+		model.addAttribute("collezioni", collezioneService.getAllCollezioni());
+		model.addAttribute("artisti", artistaService.getAllArtisti());
 		
 		return "admin/opera-form";
 	}
